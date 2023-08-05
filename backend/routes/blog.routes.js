@@ -1,4 +1,3 @@
-
 const express = require("express");
 const blogController = require("../controllers/blog");
 const { auth } = require("../middlewares/auth");
@@ -16,10 +15,21 @@ const upload = multer({
 });
 
 // POST route for adding a new post with an image
-blogRoute.post("/addpost",auth, upload.single("image"), blogController.addPost);
-
-module.exports = blogRoute;
-
+blogRoute.post(
+  "/addpost",
+  auth,
+  upload.single("image"),
+  blogController.addPost
+);
+blogRoute.get("/getblog", auth, blogController.getAllBlog);
+blogRoute.get("/getcreatorblog", auth, blogController.getCreatorBlog);
+blogRoute.put(
+  "/updateblog/:id",
+  auth,
+  upload.single("image"),
+  blogController.updateBlog
+);
+blogRoute.delete("/deleteblog/:id", auth, blogController.deleteBlog);
 
 module.exports = {
   blogRoute,
