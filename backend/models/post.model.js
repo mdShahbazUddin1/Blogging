@@ -7,6 +7,7 @@ const blogSchema = mongoose.Schema({
   },
   image: {
     type: String,
+    require: true,
   },
   content: {
     type: String,
@@ -17,6 +18,27 @@ const blogSchema = mongoose.Schema({
     ref: "user",
     required: true,
   },
+  comments: [
+    {
+      author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+        required: true,
+      },
+      name: {
+        type: String,
+        require: true,
+      },
+      comment: {
+        type: String,
+        require: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

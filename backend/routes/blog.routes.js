@@ -30,6 +30,8 @@ blogRoute.put(
   blogController.updateBlog
 );
 blogRoute.delete("/deleteblog/:id", auth, blogController.deleteBlog);
+blogRoute.post("/:id/comments",auth,blogController.commentBlog)
+blogRoute.get("/search",auth,blogController.searchBlog)
 
 module.exports = {
   blogRoute,

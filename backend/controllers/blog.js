@@ -1,8 +1,9 @@
 const { BlogModel } = require("../models/post.model");
+const { UserModel } = require("../models/user.model");
 
 const addPost = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title,content,comments } = req.body;
     const authorId = req.userId;
     let imageDataURL = null;
     if (req.file) {
@@ -16,6 +17,7 @@ const addPost = async (req, res) => {
       content,
       author:authorId,
       image: imageDataURL,
+      comments:comments
     });
 
     res.status(201).send({ msg: "New blog created", newBlog });
@@ -119,10 +121,56 @@ const deleteBlog = async (req,res) => {
 
 }
 
+const commentBlog = async (req,res) => {
+  try {
+   const { id } = req.params;
+   const {comment } = req.body;
+   const authorId = req.userId;
+
+   const blog = await BlogModel.findById(id)
+
+   const user = await UserModel.findById(authorId)
+   if(!blog)return res.status(400).send({msg:"blog not found"})
+   if(!user)return res.status(400).send({msg:"user not found"})
+
+   const newComment = {
+    author:user._id,
+    name:user.name,
+    comment,
+   }
+
+   blog.comments.push(newComment)
+   await blog.save()
+    res.status(200).send({msg:"comment added success"})
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
+const searchBlog = async (req, res) => {
+  try {
+    const {query} = req.query
+    const searchWords = query
+      .split(" ")
+      .map((word) => `(?=.*${word})`)
+      .join("");
+    const searchRegex = new RegExp(searchWords, "i");
+
+    // Search for blogs that match the title using the regex.
+    const blogs = await BlogModel.find({ title: { $regex: searchRegex } });
+
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   addPost,
   getAllBlog,
   getCreatorBlog,
   updateBlog,
-  deleteBlog
+  deleteBlog,
+  commentBlog,
+  searchBlog
 };
