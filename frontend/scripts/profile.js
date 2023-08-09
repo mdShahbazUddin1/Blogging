@@ -7,8 +7,9 @@ import {
 let loginForm = document.getElementById("login");
 let logOutBtn = document.getElementById("logout-btn");
 let registerForm = document.getElementById("register");
+let searchInput = document.getElementById("search-btn");
 let blogMain = document.querySelector(".blog-card-section");
-let creatorText = document.getElementById("creator-text")
+let creatorText = document.getElementById("creator-text");
 
 let creatBlog = document.getElementById("create-blog-form");
 let editBlog = document.getElementById("create-blog-form2");
@@ -45,26 +46,40 @@ logOutBtn.addEventListener("click", async () => {
   }
 });
 
-async function getCreatorBlog() {
-  const response = await fetch(`${BASEURL}blog/getcreatorblog`, {
-    method: "GET",
-    headers: {
-      Authorization: `${localStorage.getItem("token")}`,
-    },
-  });
+async function getCreatorBlog(query) {
+  try {
+    let response;
+    if (query) {
+      response = await fetch(`${BASEURL}blog/search?query=${query}`, {
+        method: "GET",
+      });
+    } else {
+      response = await fetch(`${BASEURL}blog/getcreatorblog`, {
+        method: "GET",
+        headers: {
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      });
 
-  if (response.status === 400) {
-   creatorText.innerText = "No blog ! Please create blog "
-  }else{
-    creatorText.innerText = "Blog created by you";
+      if (response.status === 400) {
+        creatorText.innerText = "No blog ! Please create blog ";
+      } else {
+        creatorText.innerText = "Blog created by you";
+      }
+    }
+
+    const data = await response.json();
+    console.log(data);
+    displayBlog(data);
+  } catch (error) {
+    console.log(error);
   }
-
-  const data = await response.json();
-  console.log(data);
-  displayBlog(data);
 }
-getCreatorBlog();
 
+searchInput.addEventListener("input", (e) => {
+  const query = e.target.value;
+  getCreatorBlog(query);
+});
 
 async function displayBlog(data) {
   try {
@@ -103,10 +118,10 @@ async function displayBlog(data) {
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
       deleteBtn.classList.add("delete-button");
-    //   edit button
-    editBtn.addEventListener("click",async(e)=>{
-        e.preventDefault()
-        e.stopPropagation()
+      //   edit button
+      editBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         editBlog.addEventListener("submit", async (e) => {
           e.preventDefault();
 
@@ -142,7 +157,7 @@ async function displayBlog(data) {
             console.error("Error creating blog:", error);
           }
         });
-    })
+      });
       // Add event listener for delete button
       deleteBtn.addEventListener("click", async (e) => {
         e.preventDefault(); // Prevent default link behavior
@@ -205,7 +220,7 @@ creatBlog.addEventListener("submit", async (e) => {
       const data = await response.json();
       alert("New blog added");
       creatBlog.title.value = "";
-      creatBlog.image.value = ""; 
+      creatBlog.image.value = "";
       creatBlog.content.value = "";
       getCreatorBlog();
     } else {
@@ -217,8 +232,7 @@ creatBlog.addEventListener("submit", async (e) => {
   }
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   updateProfileVisibility();
+  getCreatorBlog();
 });

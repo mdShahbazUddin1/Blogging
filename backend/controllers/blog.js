@@ -164,21 +164,15 @@ const commentBlog = async (req,res) => {
 
 const searchBlog = async (req, res) => {
   try {
-    const {query} = req.query
-    const searchWords = query
-      .split(" ")
-      .map((word) => `(?=.*${word})`)
-      .join("");
-    const searchRegex = new RegExp(searchWords, "i");
-
-    // Search for blogs that match the title using the regex.
+    const { query } = req.query;
+    const searchRegex = new RegExp(query, "i");
     const blogs = await BlogModel.find({ title: { $regex: searchRegex } });
 
     res.status(200).json(blogs);
   } catch (error) {
-    res.status(500).send(error.message)
+    res.status(500).send(error.message);
   }
-}
+};
 
 module.exports = {
   addPost,

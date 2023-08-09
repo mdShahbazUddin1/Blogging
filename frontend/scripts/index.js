@@ -3,7 +3,7 @@ import { loginUser, registerUser, updateProfileVisibility,logoutUser } from "./a
 let loginForm = document.getElementById("login");
 let registerForm = document.getElementById("register");
 let logOutBtn = document.getElementById("logout-btn")
-
+let searchInput = document.getElementById("search-btn")
 let loginPopUpBtn = document.getElementById("login-btn");
 let popUp = document.getElementById("form-section");
 
@@ -53,16 +53,40 @@ let blogMain = document.querySelector(".blog-card-section");
 
 let BASEURL = `http://localhost:8080/`;
 
-async function fecthBlog() {
+async function fecthBlog(query) {
   try {
-    let resposne = await fetch(`${BASEURL}blog/getblog`);
-    let data = await resposne.json();
-    displayBlog(data);
+    let response;
+    if (query) {
+      response = await fetch(`${BASEURL}blog/search?query=${query}`, {
+        method: "GET",
+      });
+    } else {
+      response = await fetch(`${BASEURL}blog/getblog`, {
+        method: "GET",
+      });
+    }
+
+    if (response.ok) {
+      let data = await response.json();
+      displayBlog(data);
+    } else {
+      console.error("Error fetching data:", response.statusText);
+    }
   } catch (error) {
-    console.log(error);
+    console.error("An error occurred:", error);
   }
 }
-fecthBlog();
+
+
+
+searchInput.addEventListener("input", (e) => {
+  const query = e.target.value;
+  fecthBlog(query);
+});
+
+
+
+
 
 async function displayBlog(data) {
   try {
@@ -122,6 +146,7 @@ loginForm.addEventListener("submit", (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateProfileVisibility();
+  fecthBlog();
 });
 
 registerForm.addEventListener("submit", (e) => {
