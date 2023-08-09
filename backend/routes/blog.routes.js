@@ -21,7 +21,8 @@ blogRoute.post(
   upload.single("image"),
   blogController.addPost
 );
-blogRoute.get("/getblog", auth, blogController.getAllBlog);
+blogRoute.get("/getblog",  blogController.getAllBlog);
+blogRoute.get("/getblog/:id",blogController.getBlogById)
 blogRoute.get("/getcreatorblog", auth, blogController.getCreatorBlog);
 blogRoute.put(
   "/updateblog/:id",

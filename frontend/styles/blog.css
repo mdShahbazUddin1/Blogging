@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.main-container-blog {
+  width: 100%;
+  margin-top: 80px;
+}
+.blog-middle {
+  width: 100%;
+  background-color: #444;
+  height: 300px;
+}
+
+.blog-data-details {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.blog-title {
+  text-align: center;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.blog-data-image {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-data-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.blog-content {
+  margin-top: 30px;
+}
+.attractive-text {
+  font-size: 18px;
+  font-family: "Georgia", serif;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  position: relative;
+}
+
+.attractive-text:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #777;
+  bottom: 0;
+  left: 0;
+}
+
+.attractive-text:after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 1px;
+  background-color: #777;
+  bottom: 0;
+  left: 50%;
+}
+.comment-container{
+  width: 60%;
+  margin: 0 auto;
+ margin-top: 20px;
+ padding: 10px;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.comment-container h2{
+  text-align: center;
+}
+.comment-section{
+  width: 100%;
+  overflow-y: scroll; /* Add this line to enable vertical scrollbar */
+  max-height: 300px;
+}
+.comment-card{
+  margin-left: 10px;
+}
+.comment-card ,h3{
+  margin-top: 10px;
+}
+.comment-card ,p{
+  margin-top: 5px;
+  color: #444;
+}
+.post{
+  width: 100%;
+  margin-top: 10px;
+  padding-bottom: 5px;
+}
+.post form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.post form input:first-child{
+  width: 80%;
+  padding: 8px;
+  outline: none;
+  border: 1px solid #444;
+}
+
+.post form input:last-child{
+  width: 20%;
+  padding: 10px;
+  outline: none;
+  background-color: rgb(66, 66, 255);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}

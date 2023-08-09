@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none;color: black;font-family: sans-serif;"><h3>Blog<span>gers</span></h3></a>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="Search blog by the title" autocomplete="search">
+            </div>
+            <div class="login">
+                <a href="../pages/profile.html" id="profile">Profile</a>
+                <button id="login-btn">Login</button>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </div>
+    <div class="form_box" id="form-section">
+        <div class="btn-bg">
+            <i class="fa-sharp fa-solid fa-circle-xmark" id="close-btn"></i>
+            <div class="btn-box">
+                <button type="button" class="toggle-btn" id="logBtn">Login</button>
+                <button type="button" class="toggle-btn" id="regBtn">Register</button>
+            </div>
+        </div>
+        <form class="login-container" id="login">
+            <div class="login-form">
+                <div class="login-input">
+                    <input type="email" placeholder="Enter email" id="email" autocomplete="email">
+                    <input type="password" placeholder="Enter password" id="password" autocomplete="current-password">
+                    <input type="submit" value="Login" id="login-form-btn" />
+                </div>
+                <div class="login-bottom">
+                    <hr>
+                    <p>Or Login/Signup With</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png?w=740&t=st=1676977610~exp=1676978210~hmac=ebb5dd3202c003d3e99a8ba5bf065a75d5de82bf902e52b3dc24cc8a15672049"
+                        alt="">
+                </div>
+                <div class="login_tc">
+                    <p>By proceeding, you agree to Blogger's <span>Privacy Policy, User
+                            Agreement</span>and<span>T&Cs</span></p>
+                </div>
+            </div>
+        </form>
+        <form class="register-container" id="register">
+            <h2 class="register-text">Login/Sign up</h2>
+            <div class="register-form">
+                <div class="register-input">
+                    <input type="text" placeholder="Enter your name">
+                    <input type="email" placeholder="Enter your email">
+                    <input type="password" placeholder="Enter your password">
+                    <input type="submit" value="Register" id="register-btn">
+                </div>
+            </div>
+            <div class="register-bottom">
+                <p>OR LOGIN ACCOUNT WITH</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png?w=740&t=st=1676977610~exp=1676978210~hmac=ebb5dd3202c003d3e99a8ba5bf065a75d5de82bf902e52b3dc24cc8a15672049"
+                    alt="">
+                <p class="register-bottom-text">By proceeding, you agree to Blogger's
+                    <span>T&Cs</span>and <span>Privacy</span>
+                </p>
+            </div>
+        </form>
+    </div>
+    <!-- blog section -->
+    <div class="main-container-blog">
+        <div class="blog-middle">
+            <div class="blog-data-details">
+                <div class="blog-title">
+                    <h1></h1>
+                </div>
+                <div class="blog-data-image">
+                    <img src=""alt="">
+                </div>
+                <div class="blog-content">
+                    <p class="attractive-text"></p>
+                </div>
+            </div>
+            <div class="comment-container">
+                <h2>Comment on post</h2>
+                <div class="comment-section">
+    <!-- comment card -->
+                 
+                </div>
+                <div class="post">
+                    <form id="comment-form">
+                        <input type="text" id="comment-text" placeholder="Write your comment......">
+                        <input type="submit" value="Comment">
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</body>
+
+</html>
+<script type="module" src="../scripts/blog.js"></script>
+<script>
+    let loginForm = document.getElementById("login");
+    let registerForm = document.getElementById("register");
+    let body = document.querySelector("body");
+
+    let loginPopUpBtn = document.getElementById("login-btn");
+    let popUp = document.getElementById("form-section");
+    let clickBody = document.querySelector("body");
+
+    let loginBtn = document.getElementById("logBtn");
+    let registerBtn = document.getElementById("regBtn");
+
+    let closePopup = document.getElementById("close-btn");
+    registerBtn.addEventListener("click", () => {
+        registerForm.style.left = "22px";
+        loginForm.style.left = "-450px";
+        loginBtn.style.background = "none";
+        loginBtn.style.color = "black";
+        loginBtn.style.border = "2px solid black";
+        registerBtn.style.background =
+            "linear-gradient(90deg,rgba(255,137,53,1)6%,rgba(217.97,152,1)100%";
+        registerBtn.style.color = "white";
+        registerBtn.style.border = "none";
+    });
+    loginBtn.addEventListener("click", () => {
+        loginForm.style.left = "22px";
+        registerForm.style.left = "500px";
+        loginBtn.style.background = "rgb(61, 184, 209)";
+        loginBtn.style.color = "white";
+        loginBtn.style.border = "none";
+        registerBtn.style.background = "none";
+        registerBtn.style.color = "black";
+        registerBtn.style.border = "2px solid black";
+    });
+
+    // popup login button function
+
+    loginPopUpBtn.addEventListener("click", () => {
+        popUp.style.top = "50%";
+        popUp.style.transform = "translate(-50%, -50%)scale(1)";
+        popUp.style.visibility = "visible";
+        popUp.style.position = "fixed";
+    });
+
+    closePopup.addEventListener("click", () => {
+        popUp.style.visibility = "hidden";
+
+    });
+</script>

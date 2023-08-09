@@ -36,6 +36,21 @@ const getAllBlog = async (req,res) =>{
   }
 }
 
+const getBlogById = async (req,res) => {
+  try {
+    const {id} = req.params
+
+    const blog = await BlogModel.findById(id);
+
+    if(!blog){
+      return res.status(400).send({msg:"Blog not found"})
+    }
+    res.status(200).send(blog)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
 const getCreatorBlog = async(req,res) => {
   try {
     const authorId = req.userId
@@ -168,6 +183,7 @@ const searchBlog = async (req, res) => {
 module.exports = {
   addPost,
   getAllBlog,
+  getBlogById,
   getCreatorBlog,
   updateBlog,
   deleteBlog,
