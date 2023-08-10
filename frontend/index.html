@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Bloggers</title>
 </head>
+
 <body>
     <div class="navbar">
         <div class="nav-container">
@@ -24,41 +25,43 @@
             </div>
         </div>
     </div>
-<div class="form_box" id="form-section">
-    <div class="btn-bg">
-        <i class="fa-sharp fa-solid fa-circle-xmark" id="close-btn"></i>
-        <div class="btn-box">
-            <button type="button" class="toggle-btn" id="logBtn">Login</button>
-            <button type="button" class="toggle-btn" id="regBtn">Register</button>
+    <div class="form_box" id="form-section">
+        <div class="btn-bg">
+            <i class="fa-sharp fa-solid fa-circle-xmark" id="close-btn"></i>
+            <div class="btn-box">
+                <button type="button" class="toggle-btn" id="logBtn">Login</button>
+                <button type="button" class="toggle-btn" id="regBtn">Register</button>
+            </div>
         </div>
+        <form class="login-container" id="login">
+            <div class="login-form">
+                <div class="login-input">
+                    <input type="email" autocomplete="email" placeholder="Enter email" id="email" id="email" required>
+                    <input type="password" name="password" autocomplete="password" placeholder="Enter password"
+                        id="password" required>
+                    <input type="submit" value="Login" id="login-form-btn" />
+                </div>
+                <div class="login-bottom">
+                    <hr>
+                    <p>Or Login/Signup With</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png?w=740&t=st=1676977610~exp=1676978210~hmac=ebb5dd3202c003d3e99a8ba5bf065a75d5de82bf902e52b3dc24cc8a15672049"
+                        alt="">
+                </div>
+            </div>
+        </form>
+        <form class="register-container" id="register">
+            <h2 class="register-text">Login/Sign up</h2>
+            <div class="register-form">
+                <div class="register-input">
+                    <input type="text" placeholder="Enter your name" id="name">
+                    <input type="email" autocomplete="email" placeholder="Enter your email" id="emai">
+                    <input type="password" name="password" autocomplete="current-password"
+                        placeholder="Enter your password" required id="pas">
+                    <input type="submit" value="Register" id="register-btn" style="cursor: pointer;">
+                </div>
+            </div>
+        </form>
     </div>
-    <form class="login-container" id="login">
-        <div class="login-form">
-            <div class="login-input">
-                <input type="email" autocomplete="email" placeholder="Enter email" id="email" id="email" required>
-                <input type="password" name="password" autocomplete="password" placeholder="Enter password" id="password" required>
-                <input type="submit" value="Login" id="login-form-btn"/>
-            </div>
-            <div class="login-bottom">
-                <hr>
-                <p>Or Login/Signup With</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png?w=740&t=st=1676977610~exp=1676978210~hmac=ebb5dd3202c003d3e99a8ba5bf065a75d5de82bf902e52b3dc24cc8a15672049"
-                    alt="">
-            </div>
-        </div>
-    </form>
-    <form class="register-container" id="register">
-        <h2 class="register-text">Login/Sign up</h2>
-        <div class="register-form">
-            <div class="register-input">
-                <input type="text" placeholder="Enter your name" id="name">
-                <input type="email" autocomplete="email" placeholder="Enter your email" id="emai">
-                <input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required id="pas">
-                <input type="submit" value="Register" id="register-btn" style="cursor: pointer;">
-            </div>
-        </div>
-    </form>
-</div>
 
     <section class="section hero" aria-label="home">
         <div class="container">
@@ -95,7 +98,7 @@
 
     <footer class="footer">
         <div class="footer-section">
-        <p>&copy; 2023 Your Website. All rights reserved.</p>
+            <p>&copy; 2023 Your Website. All rights reserved.</p>
         </div>
     </footer>
 </body>

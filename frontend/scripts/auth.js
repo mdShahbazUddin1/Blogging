@@ -1,4 +1,4 @@
-const BASEURL = "http://localhost:8080/";
+const BASEURL = "https://erin-jolly-caridea.cyclic.app/";
 let popUp = document.getElementById("form-section");
 
 // Function to update the visibility of the profile link

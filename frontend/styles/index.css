@@ -55,16 +55,15 @@
   width: 20%;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-evenly;
   /* border: 2px solid red; */
 }
-.login a{
+.login a {
   display: none;
   text-align: center;
   text-decoration: none;
   color: #444;
   font-size: 18px;
-  
 }
 .login button {
   width: 40%;
@@ -78,15 +77,15 @@
   color: #fff;
   font-weight: 600;
 }
-#logout-btn{
+#logout-btn {
   display: none;
 }
 .login button:hover {
   background-color: blue;
 }
 .form_box {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   position: absolute;
   background: #ffff;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
@@ -99,7 +98,7 @@
   border-radius: 15px;
   z-index: 15;
 }
-#close-btn{
+#close-btn {
   display: flex;
   align-items: end;
   justify-content: flex-end;
@@ -166,7 +165,6 @@
 .register-input {
   width: 80%;
   margin: auto;
- 
 }
 
 .register-input > input {
@@ -176,10 +174,10 @@
   border: 1px solid #e57373;
   width: 98%;
   border-radius: 5px;
-   outline: none;
+  outline: none;
 }
-#register-btn{
-    background: linear-gradient(
+#register-btn {
+  background: linear-gradient(
     90deg,
     rgba(158, 60, 151, 1) 0%,
     rgba(233, 88, 30, 1) 100%
@@ -189,7 +187,7 @@
 
 .register-container {
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 500px;
 }
 .register-bottom {
@@ -213,6 +211,9 @@
 }
 .register-text {
   color: #444;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
 }
 /* Login validation */
 
@@ -234,7 +235,7 @@
 .login-bottom img {
   width: 20px;
 }
-#login-form-btn{
+#login-form-btn {
   background-color: transparent;
   outline: none;
   border: 1px solid #444;
@@ -252,7 +253,7 @@
   margin: auto;
 }
 .login-input input {
-margin-top: 10px;
+  margin-top: 10px;
 }
 .login-input button {
   display: block;
@@ -263,11 +264,11 @@ margin-top: 10px;
   font-weight: 800;
   padding: 6px;
   border-radius: 0;
-  background-color:#29b6f6 ;
+  background-color: #29b6f6;
 }
 .login-bottom {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   line-height: 40px;
 }
 .login-bottom img {
@@ -288,8 +289,6 @@ margin-top: 10px;
 .form_box {
   overflow: hidden;
 }
-
-
 
 .section {
   /* border: 1px solid red; */
@@ -346,9 +345,9 @@ margin-top: 10px;
 }
 .card {
   border-radius: 10px;
-  padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
   border: 1px solid rgb(218, 218, 218);
+  padding-bottom: 10px;
 }
 
 .blog-card-section div {
@@ -360,7 +359,6 @@ margin-top: 10px;
   height: 150px;
   overflow: hidden;
   transition: transform 0.5s ease;
-  border-radius: 10px;
 }
 .blog-details {
   padding: 5px;
@@ -431,14 +429,14 @@ margin-top: 10px;
   padding: 2px;
 }
 
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 576px) {
   .navbar {
     height: 50px;
   }
   .nav-container {
     width: 100%;
-   justify-content: space-evenly;
-   gap: 5px;
+    justify-content: space-evenly;
+    gap: 5px;
   }
 
   .nav-container div:nth-child(1) {
@@ -458,148 +456,431 @@ margin-top: 10px;
   .login {
     width: 30%;
     font-size: 14px;
-           /* border: 2px solid red; */
+    /* border: 2px solid red; */
   }
-  .login a{
+  .login a {
     font-size: 12px;
     font-family: sans-serif;
-/
   }
   .login button {
-    width: 100%;
+    width: 60%;
     font-size: 11px;
-    padding: 7px;
+    padding: 6px;
     border-radius: 2px;
     margin-left: 6px;
   }
 
   .form_box {
-  width: 250px;
-  height: 300px;
-  position: absolute;
-  background: #ffff;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  top: 0%;
-  left: 50%;
-  /* transform: translate(-50%, -50%); */
-  transform: translate(-50%, -50%) scale(0.1);
-  visibility: hidden;
-  border-radius: 15px;
-  z-index: 15;
-}
+    width: 250px;
+    height: 300px;
+    top: 0%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    border-radius: 15px;
+    z-index: 15;
+  }
 
-.btn-box {
-  width: 90%;
-  margin: 15px auto;
-  padding: 6px;
-}
-.toggle-btn {
-  padding: 8px 20px;
-  font-size: 12px;
-}
-.register-container {
-  width: 85%;
-  position: absolute;
-  top: 32%;
-}
-.register-text{
-  font-size: 14px;
-}
-.register-form{
-  margin: 10px 0 10px 0;
-}
-.register-input{
-  width: 100%;
-  margin-top: -10px;
-}
-.register-input > input {
+  .btn-box {
+    width: 90%;
+    margin: 15px auto;
+    padding: 6px;
+  }
+  .toggle-btn {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+  .register-container {
+    width: 85%;
+    position: absolute;
+    top: 32%;
+  }
+  .register-text {
+    font-size: 14px;
+  }
+  .register-form {
+    margin: 10px 0 10px 0;
+  }
+  .register-input {
+    width: 100%;
+    margin-top: -10px;
+  }
+  .register-input > input {
     padding: 7px;
     margin-top: 10px;
     border: 1px solid #e57373;
     width: 100%;
     border-radius: 2px;
-}
-.login-input input {
-  display: block;
-  width: 100%;
-  padding: 5px;
-}
-.login-container {
-  position: absolute;
-  width: 85%;
-  left: 8%;
-}
-.login-bottom {
-  margin-top: 10px;
-  font-size: 10px;
-}
-.login-bottom img {
-  margin-top: 0;
-}
-.login_tc {
-  margin-top: 0px;
-  font-size: 10px;
-  width: 100%;
-  font-weight: bold;
-  line-height: 15px;
+  }
+  .login-input input {
+    display: block;
+    width: 100%;
+    padding: 5px;
+  }
+  .login-container {
+    position: absolute;
+    width: 85%;
+    left: 8%;
+  }
+  .login-bottom {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+  .login-bottom img {
+    margin-top: 0;
+  }
+
+  .section {
+    margin-top: 60px;
+    width: 98%;
+  }
+
+  .hero-title {
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+  .wrapper {
+    margin-top: 15px;
+  }
+  .email-field {
+    padding: 4px;
+  }
+  .btn {
+    padding: 6px;
+  }
+
+  .newsletter-text {
+    margin-top: 17px;
+    font-size: 16px;
+  }
+  .blog-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    /* border: 2px solid red; */
+  }
+  .blog-card-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+  .card {
+    width: 100%;
+    border-radius: 5px;
+    padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+  border: 1px solid rgb(218, 218, 218);
+  padding-bottom: 10px;
+  }
+
+  .blog-image {
+    width: 100%;
+    max-height: 120px;
+    overflow: hidden;
+    border-radius: 0px;
+  }
+
+  .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .blog-details h3 {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .blog-btn button {
+    padding: 6px;
+    background-color: black;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 10px;
+  }
+
+  .footer {
+    width: 100%;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-section p {
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #444;
+    font-size: 12px;
+    padding: 2px;
+  }
 }
 
-.section {
-  margin-top: 60px;
-  width: 98%;
+@media (min-width: 577px) and (max-width: 768px) {
+  .navbar {
+    height: 55px;
+  }
+  .nav-container {
+    width: 95%;
+    justify-content: space-evenly;
+    gap: 5px;
+  }
+
+  .nav-container div:nth-child(1) {
+    width: 16%;
+    font-size: 16px;
+  }
+  .nav-container div:nth-child(2) {
+    width: 53%;
+  }
+  .nav-container div:nth-child(2) > input {
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 4px;
+  }
+  .login {
+    width: 30%;
+    font-size: 14px;
+  }
+  .login a {
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+  .login button {
+    width: 50%;
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  .form_box {
+    width: 300px;
+    height: 330px;
+  }
+  .btn-box {
+    width: 80%;
+    margin: 10px auto;
+    padding: 4px;
+    /* border: 1px solid red; */
+  }
+  .register-container {
+    width: 85%;
+    position: absolute;
+    top: 29%;
+  }
+  .register-text {
+    font-size: 16px;
+  }
+  .register-form {
+    margin: 10px 0 10px 0;
+  }
+  .register-input {
+    width: 100%;
+    margin-top: -10px;
+  }
+  .login-container {
+    position: absolute;
+    width: 85%;
+    left: 8%;
+  }
+  .login-bottom {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .login-bottom img {
+    margin-top: 0;
+  }
+  .section {
+    margin-top: 80px;
+    width: 98%;
+  }
+  .hero-title {
+    font-size: 40px;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+  .blog-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .blog-section p {
+    margin: 5px 0 10px 0;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+  .blog-card-section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+  .card {
+    width: 100%;
+    border-radius: 5px;
+    padding: 0;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+  border: 1px solid rgb(218, 218, 218);
+
+    padding-bottom: 5px;
+  }
+   .blog-image {
+    width: 100%;
+    max-height: 120px;
+    overflow: hidden;
+    border-radius: 0px;
+  }
+   .blog-details h3 {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .blog-details p {
+    font-size: 13px;
+    margin-top: 10px;
+    font-weight: 100;
+  }
 }
 
-.hero-title {
-  font-size: 22px;
-  font-family: sans-serif;
-  font-weight: 100;
-}
-.wrapper {
-  margin-top: 15px;
-}
-.email-field {
-  padding: 4px;
-}
-.btn {
-  padding: 6px;
-}
-
-.newsletter-text {
-  margin-top: 17px;
-  font-size: 16px;
-}
-.blog-container {
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 15px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  /* border: 2px solid red; */
-}
-.blog-card-section {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.blog-image {
-  height: 90px;
-}
-.blog-details h3 {
-  text-align: center;
-  font-size: 12px;
-}
-
-.blog-btn button {
-  padding: 6px;
-  background-color: black;
-  color: #fff;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 10px;
-}
-
-
+@media (min-width: 769px) and (max-width: 992px) {
+.navbar {
+    height: 60px;
+  }
+    .nav-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+  }
+    .nav-container div:nth-child(1) {
+    width: 12%;
+    font-size: 20px;
+  }
+    .nav-container div:nth-child(2) {
+    width: 40%;
+  }
+    .nav-container div:nth-child(2) > input {
+      width: 100%;
+    font-size: 14px;
+    padding: 7px;
+    border-radius: 3px;
+  
+  }
+   .login {
+    width: 30%;
+    font-size: 12px;
+  }
+   .form_box {
+    width: 350px;
+    height: 350px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    border-radius: 15px;
+    z-index: 15;
+  }
+   .btn-box {
+    width: 90%;
+    margin: 15px auto;
+    padding: 6px;
+  }
+    .register-container {
+    width: 85%;
+    position: absolute;
+    top: 28%;
+  }
+   .register-text {
+    font-size: 16px;
+  }
+  .register-form {
+    margin: 20px 0 20px 0;
+  }
+  .register-input {
+    width: 100%;
+    margin-top: -10px;
+  }
+  .register-input > input {
+    padding: 9px;
+    margin-top: 10px;
+    border: 1px solid #e57373;
+    width: 100%;
+    border-radius: 2px;
+  }
+   .login-input input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+  }
+  .login-container {
+    position: absolute;
+    width: 85%;
+    left: 8%;
+  }
+  .login-bottom {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+  .login-bottom p {
+    font-size: 14px;
+  }
+  .login-bottom img {
+    margin-top: 0;
+  }
+    .section {
+    margin-top: 80px;
+    width: 98%;
+  }
+   .hero-title {
+    font-size: 43px;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+   .blog-card-section {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+   .card {
+    width: 100%;
+    border-radius: 5px;
+    padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+  border: 1px solid rgb(218, 218, 218);
+  padding-bottom: 10px;
+  }
+  
+ .blog-image {
+    width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    border-radius: 0px;
+  }
+   .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+    .blog-details h3 {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+    .blog-btn button {
+    padding: 8px;
+    background-color: black;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 12px;
+  }
 }

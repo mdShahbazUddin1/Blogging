@@ -14,7 +14,7 @@ let creatorText = document.getElementById("creator-text");
 let creatBlog = document.getElementById("create-blog-form");
 let editBlog = document.getElementById("create-blog-form2");
 
-let BASEURL = `http://localhost:8080/`;
+let BASEURL = `https://erin-jolly-caridea.cyclic.app/`;
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -108,8 +108,6 @@ async function displayBlog(data) {
       blogBtn.classList.add("blog-btn");
       const readMoreBtn = document.createElement("button");
       readMoreBtn.textContent = "Read More";
-
-      // Create a container for "Edit" and "Delete" buttons
       const editDeleteBtns = document.createElement("div");
       editDeleteBtns.classList.add("edit-delete-btns");
       const editBtn = document.createElement("button");
@@ -224,7 +222,6 @@ creatBlog.addEventListener("submit", async (e) => {
       creatBlog.content.value = "";
       getCreatorBlog();
     } else {
-      // Handle error
       console.error("Error creating blog");
     }
   } catch (error) {

@@ -4,12 +4,16 @@ import {
   updateProfileVisibility,
   logoutUser,
 } from "./auth.js";
+
 const urlParams = new URLSearchParams(window.location.search);
-let loginForm = document.getElementById("login");
-let logOutBtn = document.getElementById("logout-btn");
-let registerForm = document.getElementById("register");
+const BASEURL = `https://erin-jolly-caridea.cyclic.app/`;
+
+const loginForm = document.getElementById("login");
+const logOutBtn = document.getElementById("logout-btn");
+const registerForm = document.getElementById("register");
+const commentSection = document.querySelector(".comment-section");
+const commentForm = document.getElementById("comment-form");
 const blogId = urlParams.get("id");
-const BASEURL = `http://localhost:8080/`;
 
 async function fetchBlog() {
   try {
@@ -24,12 +28,6 @@ async function fetchBlog() {
     console.error(error);
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  fetchBlog();
-});
-
-const commentSection = document.querySelector(".comment-section");
 
 function displayBlog(blog) {
   const blogTitle = document.querySelector(".blog-title h1");
@@ -53,8 +51,6 @@ function displayBlog(blog) {
   });
 }
 
-const commentForm = document.getElementById("comment-form");
-
 commentForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -73,7 +69,7 @@ commentForm.addEventListener("submit", async (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${localStorage.getItem("token")}`,
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify(data),
     });
@@ -90,31 +86,31 @@ commentForm.addEventListener("submit", async (e) => {
   }
 });
 
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  let formData = {
+  const formData = {
     email: loginForm.email.value,
     password: loginForm.password.value,
   };
-  loginUser(formData);
+  await loginUser(formData);
 });
 
-registerForm.addEventListener("submit", (e) => {
+registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  let userForm = {
+  const userForm = {
     name: registerForm.name.value,
-    email: registerForm.emai.value,
-    password: registerForm.pas.value,
+    email: registerForm.email.value,
+    password: registerForm.password.value,
   };
-  registerUser(userForm);
+  await registerUser(userForm);
 });
+
 logOutBtn.addEventListener("click", async () => {
   const logoutResult = await logoutUser();
 
   if (logoutResult.success) {
     alert(logoutResult.message);
-   window.location.href = "/frontend/index.html";
-
+    window.location.href = "/frontend/index.html";
   } else {
     alert(logoutResult.message);
   }
@@ -122,4 +118,5 @@ logOutBtn.addEventListener("click", async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateProfileVisibility();
+  fetchBlog();
 });
