@@ -81,34 +81,33 @@
     <main>
         <section class="profile-section">
             <div class="user-info">
-                
+                <div class="user-btn">
+                    <button id="create-btn">Create post</button>
+                    <button id="edit-btn">Edit post</button>
+                </div>
                 <form id="create-blog-form">
                     <div id="create-btn">
-                        <button>Create post</button>
                     </div>
                     <input type="text" id="title" name="title" placeholder="Enter Title" required>
                     <input type="file" id="image" name="image" required>
                     <textarea id="content" name="content" rows="6" placeholder="Write Content........"
                         required></textarea>
-
                     <button type="submit">Create Blog</button>
                 </form>
-                
                 <form id="create-blog-form2">
                     <div id="create-btn2">
-                        <button>Edit post</button>
                     </div>
-                    <input type="text" id="title2" name="title" placeholder="Enter Title" required>
+                    <input type="text" id="title2" name="title" placeholder="Edit Title" required>
                     <input type="file" id="image2" name="image" required>
                     <textarea id="content2" name="content" rows="6" placeholder="Update Content........"
                         required></textarea>
-
                     <button type="submit">Edit Blog</button>
                 </form>
             </div>
             <div class="blog-list">
                 <div class="blog-container">
                     <div class="blog-section">
+                        <div id="loader" class="loader"></div>
                         <p id="creator-text"></p>
                         <div class="blog-card-section">
                             <!-- card append here -->

@@ -35,8 +35,11 @@ async function loginUser(userData) {
     const data = await response.json();
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      alert("Login Successful");
-       popUp.style.visibility = "hidden";
+      let success = document.getElementById("alert-success");
+      success.style.display = "block";
+       setTimeout(() => {
+         popUp.style.visibility = "hidden";
+       }, 2000);
       updateProfileVisibility();
     } else {
       alert("User not found. Please check your credentials.");

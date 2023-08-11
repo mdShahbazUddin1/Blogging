@@ -10,7 +10,8 @@ let registerForm = document.getElementById("register");
 let searchInput = document.getElementById("search-btn");
 let blogMain = document.querySelector(".blog-card-section");
 let creatorText = document.getElementById("creator-text");
-
+let editBtnUser = document.getElementById("edit-btn");
+let createBtn = document.getElementById("create-btn");
 let creatBlog = document.getElementById("create-blog-form");
 let editBlog = document.getElementById("create-blog-form2");
 
@@ -49,6 +50,8 @@ logOutBtn.addEventListener("click", async () => {
 async function getCreatorBlog(query) {
   try {
     let response;
+     const loader = document.getElementById("loader");
+     loader.style.display = "block";
     if (query) {
       response = await fetch(`${BASEURL}blog/search?query=${query}`, {
         method: "GET",
@@ -69,8 +72,8 @@ async function getCreatorBlog(query) {
     }
 
     const data = await response.json();
-    console.log(data);
     displayBlog(data);
+       loader.style.display = "none";
   } catch (error) {
     console.log(error);
   }
@@ -116,10 +119,22 @@ async function displayBlog(data) {
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "Delete";
       deleteBtn.classList.add("delete-button");
-      //   edit button
+
+      // Event listener for the "Edit" button
       editBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         e.stopPropagation();
+
+        // Scroll the page to the top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        creatBlog.style.display = "none";
+        editBlog.style.display = "block";
+        editBtnUser.style.display = "block";
+        editBtnUser.style.backgroundColor = "#42A5F5";
+        createBtn.style.backgroundColor = "transparent";
+
+        // Event listener for the edit form submission
         editBlog.addEventListener("submit", async (e) => {
           e.preventDefault();
 
@@ -142,30 +157,38 @@ async function displayBlog(data) {
 
             if (response.ok) {
               const data = await response.json();
-              alert("blog updated");
+              alert("Blog updated");
               editBlog.title2.value = "";
               editBlog.image2.value = "";
               editBlog.content2.value = "";
+              editBlog.style.display = "none";
+              editBtnUser.style.display = "none";
+              creatBlog.style.display = "block";
               getCreatorBlog();
             } else {
-              // Handle error
-              console.error("Error creating blog");
+              console.error("Error updating blog");
             }
           } catch (error) {
-            console.error("Error creating blog:", error);
+            console.error("Error updating blog:", error);
           }
         });
       });
-      // Add event listener for delete button
+
+      // Event listener for the "Delete" button
       deleteBtn.addEventListener("click", async (e) => {
-        e.preventDefault(); // Prevent default link behavior
-        e.stopPropagation(); // Prevent event propagation
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Scroll the page to the top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         const response = await fetch(`${BASEURL}blog/deleteblog/${blog._id}`, {
           method: "DELETE",
           headers: {
             Authorization: `${localStorage.getItem("token")}`,
           },
         });
+
         if (response.ok) {
           alert("Blog deleted");
           getCreatorBlog();
@@ -197,6 +220,7 @@ async function displayBlog(data) {
   }
 }
 
+
 creatBlog.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -227,6 +251,13 @@ creatBlog.addEventListener("submit", async (e) => {
   } catch (error) {
     console.error("Error creating blog:", error);
   }
+});
+
+createBtn.addEventListener("click", () => {
+  creatBlog.style.display = "block";
+  editBlog.style.display = "none";
+  editBtnUser.style.display = "none";
+  createBtn.style.backgroundColor = "#1E88E5";
 });
 
 document.addEventListener("DOMContentLoaded", () => {

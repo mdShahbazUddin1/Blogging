@@ -17,10 +17,12 @@ const blogId = urlParams.get("id");
 
 async function fetchBlog() {
   try {
+      
     const response = await fetch(`${BASEURL}blog/getblog/${blogId}`);
     if (response.ok) {
       const data = await response.json();
       displayBlog(data);
+           loader.style.display = "none";
     } else {
       console.error(`Error fetching blog with ID ${blogId}`);
     }

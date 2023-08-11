@@ -30,6 +30,12 @@ header {
   justify-content: space-between;
   align-items: flex-start;
 }
+.user-btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 
 .user-info {
   width: 20%;
@@ -55,6 +61,7 @@ header {
   width: 100%;
   overflow: hidden;
   position: relative;
+  display: block;
 }
 #create-blog-form input,
 label,
@@ -74,11 +81,22 @@ textarea {
   margin: 0 auto;
   margin-top: 10px;
 }
+#edit-btn{
+  display: none;
+  color: white;
+  cursor: pointer;
+}
+#create-btn{
+  color: black;
+  cursor: pointer;
+  background: transparent;
+}
 
 #create-blog-form2 {
   width: 100%;
   overflow: hidden;
   position: relative;
+  display: none;
 }
 #create-blog-form2 input,
 button,
