@@ -55,10 +55,9 @@ const getCreatorBlog = async(req,res) => {
   try {
     const authorId = req.userId
 
-    const blog = await BlogModel.find({author:authorId})
+    const blog = await BlogModel.find({author:authorId}).populate("author")
 
     if(!blog || blog.length === 0) return res.status(400).send({msg:"No blog found for this author"});
-
 
     res.status(200).send(blog)
   } catch (error) {

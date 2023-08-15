@@ -22,7 +22,6 @@ async function fetchBlog() {
     if (response.ok) {
       const data = await response.json();
       displayBlog(data);
-           loader.style.display = "none";
     } else {
       console.error(`Error fetching blog with ID ${blogId}`);
     }

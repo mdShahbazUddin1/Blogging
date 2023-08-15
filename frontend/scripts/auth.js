@@ -35,8 +35,7 @@ async function loginUser(userData) {
     const data = await response.json();
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      let success = document.getElementById("alert-success");
-      success.style.display = "block";
+  alert("login success")
        setTimeout(() => {
          popUp.style.visibility = "hidden";
        }, 2000);
