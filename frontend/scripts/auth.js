@@ -1,4 +1,4 @@
-const BASEURL = "https://erin-jolly-caridea.cyclic.app/";
+const BASEURL = "https://blushing-bedclothes-toad.cyclic.app/";
 let popUp = document.getElementById("form-section");
 
 // Function to update the visibility of the profile link

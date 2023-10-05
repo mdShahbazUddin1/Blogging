@@ -15,7 +15,7 @@ let createBtn = document.getElementById("create-btn");
 let creatBlog = document.getElementById("create-blog-form");
 let editBlog = document.getElementById("create-blog-form2");
 
-let BASEURL = `https://erin-jolly-caridea.cyclic.app/`;
+let BASEURL = `https://blushing-bedclothes-toad.cyclic.app/`;
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();

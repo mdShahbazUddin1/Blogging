@@ -15,7 +15,7 @@ const loginBtn = document.getElementById("logBtn");
 const registerBtn = document.getElementById("regBtn");
 const closePopup = document.getElementById("close-btn");
 const blogMain = document.querySelector(".blog-card-section");
-const BASEURL = `https://erin-jolly-caridea.cyclic.app/`;
+const BASEURL = `https://blushing-bedclothes-toad.cyclic.app/`;
 
 // Declare a variable to store a timeout for debounce
 let searchTimeout;

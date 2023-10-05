@@ -6,7 +6,7 @@ import {
 } from "./auth.js";
 
 const urlParams = new URLSearchParams(window.location.search);
-const BASEURL = `https://erin-jolly-caridea.cyclic.app/`;
+const BASEURL = `https://blushing-bedclothes-toad.cyclic.app/`;
 
 const loginForm = document.getElementById("login");
 const logOutBtn = document.getElementById("logout-btn");
